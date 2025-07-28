@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J.Manassa Sathvika - Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .bg {
+      background: linear-gradient(to bottom, #000000, #0a0a23);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .bg::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 255, 180, 0.3), transparent 60%),
+                  radial-gradient(circle at 30% 40%, rgba(180, 0, 255, 0.2), transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(0, 100, 255, 0.25), transparent 55%);
+      animation: aurora 20s ease-in-out infinite;
+      z-index: -2;
+    }
+
+    @keyframes aurora {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(15deg) scale(1.2); }
+    }
+
+    .star-field {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      perspective: 600px;
+      z-index: -1;
+    }
+
+    .star-field .layer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      transform-style: preserve-3d;
+      box-shadow: -411px -476px #999, 777px -407px #aaa, -387px -477px #aaa,
+                  81px -450px #999, -499px 473px #aaa, 870px -134px #999,
+                  440px 490px #bbb, 714px 55px #bbb, -23px 510px #999,
+                  624px -481px #888, -23px 340px #aaa, 795px 497px #999,
+                  -814px -337px #bbb, -564px 64px #999, -383px 368px #aaa;
+    }
+
+    .star-field .layer:nth-child(1) { animation: sf-fly-by-1 5s linear infinite; }
+    .star-field .layer:nth-child(2) { animation: sf-fly-by-2 5s linear infinite; }
+    .star-field .layer:nth-child(3) { animation: sf-fly-by-3 5s linear infinite; }
+
+    @keyframes sf-fly-by-1 {
+      from { transform: translateZ(-600px); opacity: 0.3; }
+      to { transform: translateZ(0); opacity: 0.3; }
+    }
+    @keyframes sf-fly-by-2 {
+      from { transform: translateZ(-1200px); opacity: 0.3; }
+      to { transform: translateZ(-600px); opacity: 0.3; }
+    }
+    @keyframes sf-fly-by-3 {
+      from { transform: translateZ(-1800px); opacity: 0.3; }
+      to { transform: translateZ(-1200px); opacity: 0.3; }
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #7f5af0, #ff5fd2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    .btn-glow {
+      background: linear-gradient(to right, #ff5fd2, #7f5af0);
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    }
+
+    input, textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 105, 180, 0.6);
+    }
+  </style>
+  </head>
+  <body class="text-white min-h-screen flex flex-col items-center justify-start p-6 space-y-8 relative">
+
+    <!-- 🌌 Background Layers -->
+    <div class="bg"></div>
+    <div class="star-field">
+      <div class="layer"></div>
+      <div class="layer"></div>
+      <div class="layer"></div>
+    </div>
+
+    <!-- 👤 Name -->
+    <h1 class="text-4xl md:text-5xl font-bold gradient-text mt-10 z-10 text-center" data-aos="zoom-in">J.Manassa Sathvika</h1>
+
+    <!-- 👩‍💻 About Me -->
+    <section class="bg-[#0a0a23]/80 backdrop-blur-md rounded-xl p-6 w-full max-w-3xl z-10 shadow-lg shadow-indigo-800/40 card" data-aos="zoom-in">
+      <h2 class="text-2xl font-semibold text-pink-400 mb-4 flex items-center gap-2">
+        <i data-lucide="user-check" class="w-6 h-6"></i>About Me
+      </h2>
+      <p class="text-gray-300 text-base">
+        As a Computer Science undergraduate specializing in Cyber Security, I possess a keen intellectual appetite for dissecting digital systems and uncovering their hidden vulnerabilities. My primary interests lie in ethical hacking and vulnerability assessment and penetration testing (VAPT), where I blend analytical precision with creative problem-solving. I view cyber defense not as a static shield, but as a dynamic and strategic discipline—one that demands both technical mastery and an adversarial mindset. With hands-on experience in tools like Metasploit, Nmap, and Burp Suite, I am driven by a desire to anticipate threats before they materialize. I aspire to contribute meaningfully to the cyber defense ecosystem by fortifying digital infrastructures against an ever-evolving threat landscape.
+      </p>
+<br>
+
+  <div class="flex flex-col items-center gap-4 z-10 mt-10">
+    <a href="resume.pdf" download class="btn-glow">Download Resume</a>
+  </div>
+
+    </section>
+
+
+    <!-- 🛠️ Skills --><!-- 🛠️ Skills -->
+<section class="bg-[#0a0a23]/80 backdrop-blur-md rounded-xl p-6 w-full max-w-5xl z-10 shadow-lg shadow-indigo-800/40 card" data-aos="zoom-in">
+  <h2 class="text-2xl font-semibold text-pink-400 mb-6 text-center flex items-center justify-center gap-2">
+    <i data-lucide="badge-check" class="w-6 h-6"></i>Skills
+  </h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-base text-gray-300" data-aos="zoom-in">
+
+    <!-- Cybersecurity -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Cybersecurity</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Ethical Hacking</li>
+        <li>Penetration Testing</li>
+        <li>Vulnerability Assessment</li>
+        <li>Steganography</li>
+        <li>CTFs: Web, Crypto, Forensics</li>
+        <li>OSINT</li>
+      </ul>
+    </div>
+
+    <!-- Networking -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Networking</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Nmap</li>
+        <li>TCP & UDP Protocols</li>
+        <li>OSI Layers</li>
+      </ul>
+    </div>
+
+    <!-- Security Tools -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Security Tools</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Burp Suite</li>
+        <li>Wireshark</li>
+        <li>Nmap</li>
+        <li>Metasploit Framework</li>
+        <li>Kali Linux</li>
+      </ul>
+    </div>
+
+    <!-- Programming & Scripting -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Programming & Scripting</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Python</li>
+        <li>Java</li>
+        <li>Multiplayer Game Logic</li>
+        <li>Server & Client Scripts</li>
+      </ul>
+    </div>
+
+    <!-- Web Development -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Web Development</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>HTML</li>
+      </ul>
+    </div>
+
+    <!-- Database Management -->
+    <div class="bg-[#161622]/80 p-4 rounded-lg shadow-md shadow-pink-500/20 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="font-semibold text-white mb-2 text-center">Database Management</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>SQL</li>
+        <li>Python (DB Handling)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- 💻 Projects -->
+    <!-- 💻 Projects -->
+<section class="bg-[#0a0a23]/80 backdrop-blur-md rounded-xl p-6 w-full max-w-5xl z-10 shadow-lg shadow-indigo-800/40 card" data-aos="zoom-in">
+  <h2 class="text-2xl font-semibold text-pink-400 mb-6 text-center flex items-center justify-center gap-2">
+    <i data-lucide="folder-open" class="w-6 h-6"></i>Projects
+  </h2>
+  <div class="grid md:grid-cols-2 gap-6 text-base text-gray-300">
+
+    <!-- Machine Exploitation Project -->
+    <div class="bg-[#161622]/80 backdrop-blur-md p-4 rounded-lg shadow-md shadow-purple-500/30 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+        <i data-lucide="shield" class="w-5 h-5"></i>Machine Exploitation – Windows & Linux Environments
+      </h3>
+      <p class="mb-2 text-sm italic text-gray-400">April 2025 · Tools: Metasploit, Searchsploit, Dirbuster, Hydra, LinPEAS, WinPEAS</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Gained root/system access on CTF machines simulating real-world networks.</li>
+        <li>Exploited Windows (7, 10, Server) and Linux systems; used EternalBlue (MS17-010) on HTB Blue.</li>
+        <li>Performed privilege escalation, credential dumping, and persistence techniques.</li>
+        <li>Documented attack paths and recommended system hardening measures.</li>
+      </ul>
+    </div>
+
+    <!-- Web Application VAPT Project -->
+    <div class="bg-[#161622]/80 backdrop-blur-md p-4 rounded-lg shadow-md shadow-purple-500/30 card hover:shadow-pink-500/40" data-aos="zoom-in">
+      <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+        <i data-lucide="globe" class="w-5 h-5"></i>Web Application VAPT (Live Environments)
+      </h3>
+      <p class="mb-2 text-sm italic text-gray-400">May 2025 · Tools: Burp Suite, OWASP ZAP, Nmap, SQLmap, Nikto</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Conducted black-box and gray-box testing on authorized web apps.</li>
+        <li>Identified vulnerabilities like SQLi, XSS, CSRF, and Broken Access Control.</li>
+        <li>Used Burp Suite Pro for request manipulation and session hijacking.</li>
+        <li>Delivered detailed reports with CVSS scores, PoC evidence, and remediation steps.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- 🛡️ Internships -->
+    <section class="bg-[#0a0a23]/80 backdrop-blur-md rounded-xl p-6 w-full max-w-3xl z-10 shadow-lg shadow-indigo-800/40 card" data-aos="zoom-in">
+      <h2 class="text-2xl font-semibold text-pink-400 mb-4 flex items-center gap-2">
+        <i data-lucide="briefcase" class="w-6 h-6"></i>Internship Experience
+      </h2>
+      <ul class="text-gray-300 space-y-4 text-base">
+        <li>
+          <strong>Cybersecurity Intern – Forage (06.08.2024 – 08.09.2024):</strong><br />
+          Participated in a virtual internship focused on cybersecurity theory, tools, and best practices.
+        </li>
+        <li>
+          <strong>AICTE Cybersecurity Virtual Internship (15.02.2025 – 14.03.2025):</strong><br />
+          Completed a government-recognized internship and developed incident response documents and reports.
+        </li>
+        <li>
+          <strong>Cybersecurity Intern – Prompt Infotech (10.06.2025 – 11.07.2025):</strong><br />
+          Gained hands-on experience in malware analysis, log monitoring, and SIEM tools.
+        </li>
+      </ul>
+    </section>
+
+<section class="bg-[#0a0a23]/80 backdrop-blur-md rounded-xl p-6 w-full max-w-3xl shadow-lg shadow-indigo-800/40 card mb-16" data-aos="zoom-in">
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4 flex items-center gap-2">
+      <i data-lucide="mail" class="w-6 h-6"></i>Contact Me
+    </h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-gray-300 mb-1">Name</label>
+        <input type="text" name="name" required class="w-full p-2 rounded-md border border-pink-500/20" />
+      </div>
+      <div>
+        <label class="block text-gray-300 mb-1">Email</label>
+        <input type="email" name="email" required class="w-full p-2 rounded-md border border-pink-500/20" />
+      </div>
+      <div>
+        <label class="block text-gray-300 mb-1">Message</label>
+        <textarea name="message" rows="4" required class="w-full p-2 rounded-md border border-pink-500/20"></textarea>
+      </div>
+      <button type="submit" class="btn-glow">Send Message</button>
+    </form>
+  </section>
+
+<section id="contact" class="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <div class="contact-container">
+    <div class="contact-item" data-aos="zoom-in" data-aos-delay="100">
+<p><i class="fas fa-envelope"></i>
+<a href="mailto:manassasathvikajps@gmail.com">manassasathvikajps@gmail.com</a>
+
+<i class="fas fa-phone"></i>
+<a href="tel:+919489268239">+91 9489268239</a>
+
+<i class="fab fa-linkedin"></i>
+<a href="https://www.linkedin.com/in/J.Manassa Sathvika" target="_blank">LinkedIn .</a>
+
+<i class="fab fa-github"></i>
+<a href="https://github.com/dharsh-RD08/J.Manassa Sathvika" target="_blank">GitHub</a>
+</p>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Manassa . All rights reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+    lucide.createIcons();
+  </script>
+  </body>
+</html>
